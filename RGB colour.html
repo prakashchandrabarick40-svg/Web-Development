@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Blinking Grid</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            background: #000;
+        }
+
+        .part {
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .part:hover {
+            animation: blink 1.5s infinite;
+            transform: scale(1.05);
+            box-shadow: 0 8px 32px rgba(255,255,255,0.4);
+            z-index: 10;
+        }
+
+        @keyframes blink1 { 
+            0%, 100% { background: linear-gradient(135deg, #FF006E, #FF1493); } 
+            20% { background: linear-gradient(135deg, #8338EC, #8A2BE2); } 
+            40% { background: linear-gradient(135deg, #3A86FF, #1E90FF); } 
+            60% { background: linear-gradient(135deg, #06FFA5, #00FF7F); } 
+            80% { background: linear-gradient(135deg, #FFBE0B, #FFD700); } 
+        }
+        @keyframes blink2 { 
+            0%, 100% { background: linear-gradient(135deg, #FFBE0B, #FFD700); } 
+            20% { background: linear-gradient(135deg, #FB5607, #FF4500); } 
+            40% { background: linear-gradient(135deg, #FF006E, #FF1493); } 
+            60% { background: linear-gradient(135deg, #8338EC, #8A2BE2); } 
+            80% { background: linear-gradient(135deg, #3A86FF, #1E90FF); } 
+        }
+        @keyframes blink3 { 
+            0%, 100% { background: linear-gradient(135deg, #06FFA5, #00FF7F); } 
+            20% { background: linear-gradient(135deg, #FFBE0B, #FFD700); } 
+            40% { background: linear-gradient(135deg, #FB5607, #FF4500); } 
+            60% { background: linear-gradient(135deg, #FF006E, #FF1493); } 
+            80% { background: linear-gradient(135deg, #8338EC, #8A2BE2); } 
+        }
+        @keyframes blink4 { 
+            0%, 100% { background: linear-gradient(135deg, #3A86FF, #1E90FF); } 
+            20% { background: linear-gradient(135deg, #06FFA5, #00FF7F); } 
+            40% { background: linear-gradient(135deg, #FFBE0B, #FFD700); } 
+            60% { background: linear-gradient(135deg, #FB5607, #FF4500); } 
+            80% { background: linear-gradient(135deg, #FF006E, #FF1493); } 
+        }
+        @keyframes blink5 { 
+            0%, 100% { background: linear-gradient(135deg, #8338EC, #8A2BE2); } 
+            20% { background: linear-gradient(135deg, #3A86FF, #1E90FF); } 
+            40% { background: linear-gradient(135deg, #06FFA5, #00FF7F); } 
+            60% { background: linear-gradient(135deg, #FFBE0B, #FFD700); } 
+            80% { background: linear-gradient(135deg, #FB5607, #FF4500); } 
+        }
+        @keyframes blink6 { 
+            0%, 100% { background: linear-gradient(135deg, #FB5607, #FF4500); } 
+            20% { background: linear-gradient(135deg, #8338EC, #8A2BE2); } 
+            40% { background: linear-gradient(135deg, #3A86FF, #1E90FF); } 
+            60% { background: linear-gradient(135deg, #06FFA5, #00FF7F); } 
+            80% { background: linear-gradient(135deg, #FFBE0B, #FFD700); } 
+        }
+
+        .part:nth-child(1):hover { animation-name: blink1; }
+        .part:nth-child(2):hover { animation-name: blink2; }
+        .part:nth-child(3):hover { animation-name: blink3; }
+        .part:nth-child(4):hover { animation-name: blink4; }
+        .part:nth-child(5):hover { animation-name: blink5; }
+        .part:nth-child(6):hover { animation-name: blink6; }
+
+        .part:nth-child(1) { background: linear-gradient(135deg, #FF006E, #FF1493); }
+        .part:nth-child(2) { background: linear-gradient(135deg, #FFBE0B, #FFD700); }
+        .part:nth-child(3) { background: linear-gradient(135deg, #06FFA5, #00FF7F); }
+        .part:nth-child(4) { background: linear-gradient(135deg, #3A86FF, #1E90FF); }
+        .part:nth-child(5) { background: linear-gradient(135deg, #8338EC, #8A2BE2); }
+        .part:nth-child(6) { background: linear-gradient(135deg, #FB5607, #FF4500); }
+
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+                gap: 2px;
+            }
+            .part {
+                font-size: clamp(4rem, 12vw, 6rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="part">1</div>
+    <div class="part">2</div>
+    <div class="part">3</div>
+    <div class="part">4</div>
+    <div class="part">5</div>
+    <div class="part">6</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinking Parts on Hover</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 0;
+        }
+
+        .part {
+            flex: 1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3vw;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .part:hover {
+            animation: blink 1.5s infinite;
+            transform: scale(1.01);
+        }
+
+        @keyframes blink1 { 
+            0%, 100% { background-color: #FF006E; } 20% { background-color: #8338EC; } 40% { background-color: #3A86FF; } 
+            60% { background-color: #06FFA5; } 80% { background-color: #FFBE0B; } 
+        }
+        @keyframes blink2 { 
+            0%, 100% { background-color: #FFBE0B; } 20% { background-color: #FB5607; } 40% { background-color: #FF006E; } 
+            60% { background-color: #8338EC; } 80% { background-color: #3A86FF; } 
+        }
+        @keyframes blink3 { 
+            0%, 100% { background-color: #06FFA5; } 20% { background-color: #FFBE0B; } 40% { background-color: #FB5607; } 
+            60% { background-color: #FF006E; } 80% { background-color: #8338EC; } 
+        }
+        @keyframes blink4 { 
+            0%, 100% { background-color: #3A86FF; } 20% { background-color: #06FFA5; } 40% { background-color: #FFBE0B; } 
+            60% { background-color: #FB5607; } 80% { background-color: #FF006E; } 
+        }
+        @keyframes blink5 { 
+            0%, 100% { background-color: #8338EC; } 20% { background-color: #3A86FF; } 40% { background-color: #06FFA5; } 
+            60% { background-color: #FFBE0B; } 80% { background-color: #FB5607; } 
+        }
+        @keyframes blink6 { 
+            0%, 100% { background-color: #FB5607; } 20% { background-color: #8338EC; } 40% { background-color: #3A86FF; } 
+            60% { background-color: #06FFA5; } 80% { background-color: #FFBE0B; } 
+        }
+
+        .part:nth-child(1):hover { animation-name: blink1; }
+        .part:nth-child(2):hover { animation-name: blink2; }
+        .part:nth-child(3):hover { animation-name: blink3; }
+        .part:nth-child(4):hover { animation-name: blink4; }
+        .part:nth-child(5):hover { animation-name: blink5; }
+        .part:nth-child(6):hover { animation-name: blink6; }
+
+        .part:nth-child(1) { background-color: #FF006E; }
+        .part:nth-child(2) { background-color: #FFBE0B; }
+        .part:nth-child(3) { background-color: #06FFA5; }
+        .part:nth-child(4) { background-color: #3A86FF; }
+        .part:nth-child(5) { background-color: #8338EC; }
+        .part:nth-child(6) { background-color: #FB5607; }
+    </style>
+</head>
+<body>
+    <div class="part">1</div>
+    <div class="part">2</div>
+    <div class="part">3</div>
+    <div class="part">4</div>
+    <div class="part">5</div>
+    <div class="part">6</div>
+</body>
+</html>

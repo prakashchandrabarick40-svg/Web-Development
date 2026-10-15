@@ -1,0 +1,13 @@
+/* External CSS */
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: blue;
+}
+
+p {
+    padding: 20px;
+    border: 2px solid black;
+}
